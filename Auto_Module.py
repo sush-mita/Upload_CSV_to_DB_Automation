@@ -1,18 +1,17 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Importing CSV files into postgres database
+# Importing CSV files into postgres database
 
-# ### Project Steps:
+#Project Steps:
 # - importing a csv file into a dattaframe
 # - Cleaning the the data table name 
 # - Cleaning the column headers and the data set 
 # - Creating a table with SQL
 # - Importing the cleaned data into a cloud database
 
-# ### Importing all the Libraries
+#Importing all the Libraries
 
-# In[1]:
 
 
 #importing libraries
@@ -24,8 +23,8 @@ import re
 import shutil
 
 
-# ### Find CSV files in the Directory
-# #### Steps:
+#Find CSV files in the Directory
+# Steps:
 # - Find all CSV files in the current directory
 # - Isolate only the CSV files
 # - Shift the CSV files into a new directory
@@ -39,11 +38,6 @@ def csv_files():
         if fname.endswith('.csv'):
             csv_files.append(fname)
     return csv_files
-
-
-
-
-
 
 
 def config_data_dir(csv_files,data_dir):
@@ -61,10 +55,8 @@ def config_data_dir(csv_files,data_dir):
     return 
 
 
-# ### Importing the CSV file into database 
-# - Importing multiple CSV files to go through all the data cleaning process
-
-
+# Importing the CSV file into database 
+# Importing multiple CSV files to go through all the data cleaning process
 
 def create_df(csv_files,data_dir):
     #path to csv files
@@ -80,8 +72,6 @@ def create_df(csv_files,data_dir):
     return df
 
 
-
-
 def clean_table(fname):
     
     
@@ -92,7 +82,6 @@ def clean_table(fname):
     table_name = '{0}'.format(fname.split('.')[0])    
     
     return table_name
-
 
 
 def clean_columns_and_dataset(dataframe):
@@ -184,16 +173,4 @@ def database_upload(host,db ,username,password,table_name,d_cols,columns,fname ,
     cur.close()
     print("{0} table import to database completed".format(table_name))
     
-
-
-
-
-
-
-
-
-# In[ ]:
-
-
-
 
